@@ -1,0 +1,182 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.905);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+.container1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 240px;
+    padding: 20px;
+    height: 1000px;
+}
+
+
+.navbar h2{
+    font-size: 18px;
+}
+.navbar {
+    background-color: #ffffffec;
+    color: rgb(14, 14, 14);
+    width: 100%;
+    padding: 10px 40px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.search input{
+    padding: 10px 10px;
+    width: 650px;
+    background-color: #ffffffec;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.082);
+}
+.search button{
+    padding: 9px;
+    background-color: rgb(108, 108, 249);
+    color: white;
+    font-weight: 400;
+    font-size: 15px;
+    border: 1px solid transparent;
+    outline: 0;
+    border-radius: 5px;
+    
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+
+}
+
+.box {
+    background-color: #ffffffec;
+    color: rgb(14, 14, 14);
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+}
+
+.icon i {
+    font-size: 30px;
+    color: rgb(14, 14, 14);
+}
+.chart{
+   width: 100%;
+   height: 350px;
+   background-color: #ffffffec;
+   display: flex;
+   gap: 15%;
+   align-items: center;
+   padding: 30px;
+   border-radius: 20px;
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.datachart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datachart .p1 i{
+    color: blue;
+}
+.datachart .p2 i{
+    color: rgb(225, 24, 24);
+}
+.datachart .p3 i{
+    color: rgb(247, 255, 24);
+}
+
+
+.datachart p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.datachart h3{
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.infochar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.charts{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.chart2{
+    width: 100%;
+    background-color: #ffffffec;
+    height: 350px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 30px;
+    border-radius: 20px;
+    
+}
+
+.tablesdata{
+    width: 100%;
+    height: 250px;
+    margin-top: 30px;
+    overflow-y:scroll;
+}
+
+table{
+    background-color: #ffffffec;
+    height: auto;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(51, 51, 56, 0.2) 0px 7px 29px 0px;
+    float: left;
+    
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd65;
+}
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .menu {
+    background-color: #ffffffec;
+    height: 100vh;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 30px;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.links {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    height: auto;
+    margin-top: -30px;
+}
+
+.linklogout {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.links a, .linklogout a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    transition: 0.3s;
+    width: 100%;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.links a:hover, .linklogout a:hover {
+    background-color: rgba(128, 128, 128, 0.4);
+}
+.mang i{
+    font-size: 15px;
+    margin-left: 7px;
+}
+.managment {
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+ 
+}
+
+.managment.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+}
+.logo i {
+    font-size: 35px;
+}
+.profile img{
+    border-radius: 50%;
+}
+.profile p{
+    font-weight: 600;
+
+}
+    </style>
+</head>
+<body>
+<div class="menu">
+        <div class="logo">
+            <i class='bx bxl-apple'></i>
+        </div>
+           
+          
+        <div class="links">
+            <a href="dashboard.php">Dashboard</a>
+            <a href="clients.php">Clients</a>
+            <a href="#" class="mang">Inventory management<i class='bx bxs-down-arrow'></i></a>
+            <div class="managment">
+                <li><a href="">Add employees</a></li>
+                <li><a href="">Add Product</a></li>
+                <li><a href="">Analyses</a></li>
+            </div>
+            <a href="employees.php">employees</a>
+            <a href="home.php">Store</a>
+            <a href="#">To do List</a>
+            
+        </div>
+
+        <div class="linklogout">
+            <a href="#">Help & Center</a>
+            <a href="index.php">Log out</a>
+        </div>
+    </div>
+
+</body>
+</html>

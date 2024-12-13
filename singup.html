@@ -1,0 +1,109 @@
+<?php
+    include "conn.php";
+
+    if(isset($_POST['singup'])){
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $pass = $_POST['pass'];
+        $cpass = $_POST['cpass'];
+
+        if($pass == $cpass){
+            if(!empty($fname) &&!empty($lname) && !empty($email) && !empty($phone) && !empty($pass) && !empty($cpass)){
+                $sql = "INSERT INTO `singup`(`id`, `fname`, `lname`, `email`, `phone`, `pass`, `cpass`) VALUES ( NULL,'$fname' ,'$lname' ,'$email' ,'$phone' ,'$pass' ,'$cpass')";
+                $result = mysqli_query($conn,$sql);
+                if(!$result){
+                    echo "data is not inserted ...";
+                }else{
+                    echo "<script>
+                    alert('Success: You are sing in.');
+                    window.location.href = 'index.php';
+                        </script>";
+                }
+            }else{
+                echo "<script>
+                alert('Tryagain: You are not sing in.');
+              
+                    </script>";
+            }
+        }else{
+            $message = "There was an error in confirmation. Please try again.";
+            echo "<script>
+                    alert('Error: Passwords do not match. Please try again.');
+                  </script>";
+            
+        }
+    }
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="singup.css?=v2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing up</title>
+</head>
+<body>
+<div class="section1">
+    <div class="navbar">
+        <i class='bx bxl-apple'></i>
+        <h2>Apple Sing up</h2>
+    </div>
+    
+    <div class="fromlogin">
+           <form method = "post">
+                <h2 class="title1">Sign in for faster checkout.</h2>
+               <div class="formsingup">
+                    <div class="form1">
+                        <label>Your First Name</label>
+                        <input type="text" placeholder="First Name" name = "fname">
+
+                        <label>Your email</label>
+                        <input type="email" placeholder="Your email@gmail.com" name = "email">
+
+                        <label>New PassWord</label>
+                        <input type="password"  placeholder="PassWord" name = "pass">
+
+                </div>
+                <div class="form2">
+                        <label>Your Last Name</label>
+                        <input type="text" placeholder="Last Name" name= "lname">
+                       
+                        <label>Your Phone Number</label>
+                        <input type="text" placeholder="Phone Number" name= "phone">
+                      
+
+                        <label>Confirme PassWord</label>
+                        <input type="password"  placeholder="PassWord" name= "cpass">
+                        
+                </div>
+               </div>
+         
+
+                <button class="btn" name = "singup">Sing up</button>
+                <div class="links">
+                    <a href="index.php">Login in</a>
+                    <h3>Back Login in</h3>                 
+                </div>
+
+           </form>
+  
+    </div>
+</div>
+
+
+   
+
+
+
+
+
+</body>
+</html>

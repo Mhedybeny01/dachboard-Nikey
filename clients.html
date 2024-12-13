@@ -1,0 +1,82 @@
+<?php
+        include "conn.php";
+
+        $sql = "select*from `clients`";
+        $result = mysqli_query($conn,$sql);
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Clients.css?=v1">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+</head>
+<body>
+<?php   
+    include ('menu.php')
+?>
+
+    <div class="container1">
+        <div class="navbar">
+            <h2>Dashboard</h2>
+            <div class="search">
+                <input type="search" placeholder="Search to ..">
+                <button>Search</button>
+            </div>
+            <div class="profile">
+                <img src="resp.jpeg" width="40">
+                <p>user</p>
+                
+            </div>
+        </div>
+
+        <div class="tablesdata">
+        <table>    
+                <tr>
+                    <th>id</th>
+                    <th>First Name</th>
+                    <th>Last Nmae</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Code Posta</th>
+                </tr>
+                <?php
+                    if($result -> num_rows > 0){
+                        while($row = $result -> fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td>" . $row['id'] . "</th>";
+                                echo "<td>" . $row['first_name'] . "</th>";
+                                echo "<td>" . $row['last_name'] . "</th>";
+                                echo "<td>" . $row['phone'] . "</th>";
+                                echo "<td>" . $row['address'] . "</th>";
+                                echo "<td>" . $row['code_posta'] . "</th>";
+                        }
+                    }else{
+                        echo "<tr><td>is vide</td></tr>";
+                    }
+                
+                ?>
+              
+        </table>
+    </div>    
+
+    </div>
+    <script src="clients.js?=v1"></script>
+</body>
+</html>

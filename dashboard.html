@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Apple</title>
+    <link rel="stylesheet" href="Dash.css?v=1" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .menu {
+      background-color: #ffffffec;
+      height: 100vh;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 30px;
+      flex-direction: column;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .links {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      height: auto;
+      margin-top: -30px;
+    }
+
+    .linklogout {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .links a,
+    .linklogout a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: black;
+      transition: 0.3s;
+      width: 100%;
+      padding: 6px;
+      border-radius: 10px;
+    }
+
+    .links a:hover,
+    .linklogout a:hover {
+      background-color: rgba(128, 128, 128, 0.4);
+    }
+    .mang i {
+      font-size: 15px;
+      margin-left: 7px;
+    }
+    .managment {
+      display: none;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .managment.active {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+    }
+    .logo i {
+      font-size: 35px;
+    }
+    .profile img {
+      border-radius: 50%;
+    }
+    .profile p {
+      font-weight: 600;
+    }
+  </style>
+  <body>
+    <div class="menu">
+      <div class="logo">
+        <i class="bx bxl-apple"></i>
+      </div>
+
+      <div class="links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="clients.html">Clients</a>
+        <a href="#" class="mang"
+          >Inventory management<i class="bx bxs-down-arrow"></i
+        ></a>
+        <div class="managment">
+          <li><a href="">Add employees</a></li>
+          <li><a href="">Add Product</a></li>
+          <li><a href="">Analyses</a></li>
+        </div>
+        <a href="employees.html">employees</a>
+        <a href="home.html">Store</a>
+        <a href="#">To do List</a>
+      </div>
+
+      <div class="linklogout">
+        <a href="#">Help & Center</a>
+        <a href="index.html">Log out</a>
+      </div>
+    </div>
+
+    <div class="container1">
+      <div class="navbar">
+        <h2>Dashboard</h2>
+        <div class="search">
+          <input type="search" placeholder="Search to .." />
+          <button>Search</button>
+        </div>
+        <div class="profile">
+          <img src="resp.jpeg" width="40" />
+          <p>user</p>
+        </div>
+      </div>
+
+      <div class="boxes">
+        <div class="box">
+          <div class="icon">
+            <i class="bx bx-package"></i>
+          </div>
+          <div class="info">
+            <h2>Total Products</h2>
+            <p>+251</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <i class="bx bx-package"></i>
+          </div>
+          <div class="info">
+            <h2>All Clients</h2>
+            <p>
+              <?php
+                            include "conn.php";
+
+                            $sql = "SELECT count(*) AS total FROM `clients` ";
+                            $res = mysqli_query($conn,$sql);
+
+                            if($res){
+                                $row = mysqli_fetch_assoc($res);
+                                echo $row['total'];
+                            }else{
+                                echo "0";
+                            }
+                        
+                        
+                        
+                        ?>
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <i class="bx bx-package"></i>
+          </div>
+          <div class="info">
+            <h2>Profits</h2>
+            <p>+250</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <i class="bx bx-package"></i>
+          </div>
+          <div class="info">
+            <h2>Employees</h2>
+            <p>+250</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="chart">
+          <div class="canva">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="infochar">
+            <div class="datachart">
+              <h3>Total Paid</h3>
+              <p class="p1"><i class="bx bxs-circle"></i>150</p>
+            </div>
+
+            <div class="datachart">
+              <h3>Total Overdue</h3>
+              <p class="p2"><i class="bx bxs-circle"></i>150</p>
+            </div>
+
+            <div class="datachart">
+              <h3>Total On Paid</h3>
+              <p class="p3"><i class="bx bxs-circle"></i>150</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart2">
+          <div class="canva2">
+            <canvas id="myChart2"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="tablesdata">
+        <table>
+          <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Nmae</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Code Posta</th>
+            <th>Date</th>
+          </tr>
+
+          <tr>
+            <th>1</th>
+            <th>Mehdy</th>
+            <th>Bentaleb</th>
+            <th>0612414214</th>
+            <th>Tanger</th>
+            <th>90000</th>
+            <th>2024/01/12</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dash.js?=v2"></script>
+  </body>
+
+  <script>
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["Red", "Blue", "Yellow"],
+        datasets: [
+          {
+            label: "# of Votes",
+            data: [12, 19, 1],
+            borderWidth: 1,
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    const ctx2 = document.getElementById("myChart2").getContext("2d");
+    const labels = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+    ];
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "My First Dataset",
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            tension: 0.1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            stacked: true,
+          },
+        },
+      },
+    });
+  </script>
+</html>
