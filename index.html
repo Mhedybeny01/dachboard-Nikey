@@ -1,0 +1,87 @@
+<?php
+    include "conn.php";
+
+    if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];      
+
+        if (!empty($email) && !empty($pass)) {
+            // Basic SQL query without prepared statements (not as secure, but simpler)
+            $sql = "SELECT * FROM `singup` WHERE email = '$email' AND pass = '$pass'";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+           
+                echo "<script>
+                    alert('Success: You are logged in.');
+                      window.location.href = 'dashboard.php';
+                  </script>";
+               
+            } else {
+             
+                echo "<script>
+                    alert('Error: Invalid email or password.');
+                  </script>";
+            }
+        } else {
+         
+            echo "<script>
+                alert('Error: Please fill in both email and password.');
+              </script>";
+        }
+    }
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="login.css?=v1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<div class="section1">
+    <div class="navbar">
+        <i class='bx bxl-apple'></i>
+        <h2>Apple Login</h2>
+    </div>
+    
+    <div class="fromlogin">
+           <form method = "post">
+                <h2 class="title1">Login in for faster checkout.</h2>
+
+
+                <label>Your email</label>
+                <input type="email" name = "email" placeholder="Your email@gmail.com">
+
+                <label>Your PassWord</label>
+                <input type="password" name= "pass" placeholder="PassWord">
+                <div class="remember">
+                    <h2>Remember</h2>
+                    <input type="checkbox" class="Remember">
+                </div>
+         
+
+                <button class="btn" name = "login">Login</button>
+                <div class="links">
+                    <a href="singup.php">Sing up</a>
+                    <h3>Creat a Accont</h3>                 
+                </div>
+
+           </form>
+  
+    </div>
+</div>
+
+
+   
+
+
+
+
+ 
+</body>
+</html>
